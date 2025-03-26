@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.kodlama.MainInterfaceController"
+      alignment="CENTER"
+      spacing="20"
+      style="-fx-background-color: #f0f0f0;">
+    <ImageView fx:id="userIcon" fitWidth="100" fitHeight="100" preserveRatio="true">
+        <image>
+            <Image url="user.png"/>
+        </image>
+    </ImageView>
+    <Button fx:id="checkUpButton" text="Check-Up" maxWidth="200"/>
+    <Button fx:id="notificationsButton" text="Notifications" maxWidth="200"/>
+    <Button fx:id="settingsButton" text="Settings" maxWidth="200"/>
+    <Button fx:id="aboutButton" text="About" maxWidth="200"/>
+    <Button fx:id="medicationScheduleButton" text="Medication Schedule" maxWidth="200"/>
+    <Button fx:id="exitButton" text="Exit" maxWidth="200" style="-fx-background-color: lightcoral;"/>
+</VBox>

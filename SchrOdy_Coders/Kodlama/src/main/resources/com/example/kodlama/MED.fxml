@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kodlama.MED">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="583.0" prefWidth="894.0">
+         <children>
+            <HBox prefHeight="583.0" prefWidth="894.0">
+               <children>
+                  <VBox fx:id="sidebar" prefHeight="583.0" prefWidth="229.0" style="-fx-background-color: #d99df7;" visible="false">
+                     <children>
+                        <ImageView fx:id="userImage" fitHeight="171.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../FirstJavaFX/src/main/resources/com/example/firstjavafx/circle-user.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Text fill="#6c55df" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="USER" textAlignment="CENTER" wrappingWidth="62.58653235435486">
+                           <VBox.margin>
+                              <Insets bottom="30.0" left="80.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="homeButton" graphicTextGap="25.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="54.0" prefWidth="242.0" style="-fx-background-color: #d99df7;" text="HOME" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+                           <graphic>
+                              <ImageView fitHeight="44.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../FirstJavaFX/src/main/resources/com/example/firstjavafx/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="userButton" graphicTextGap="30.0" mnemonicParsing="false" onAction="#switchToUser" prefHeight="54.0" prefWidth="242.0" style="-fx-background-color: #d99df7;" text="USER" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="44.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../FirstJavaFX/src/main/resources/com/example/firstjavafx/user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="messageButton" graphicTextGap="20.0" mnemonicParsing="false" onAction="#switchToMessage" prefHeight="69.0" prefWidth="227.0" style="-fx-background-color: #d99df7;" text="MESSAGE" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+                           <graphic>
+                              <ImageView fitHeight="44.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../FirstJavaFX/src/main/resources/com/example/firstjavafx/bell-notification-social-media.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="settingButton" graphicTextGap="20.0" mnemonicParsing="false" onAction="#switchToSetting" prefHeight="54.0" prefWidth="242.0" style="-fx-background-color: #d99df7;" text="SETTING" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="44.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../FirstJavaFX/src/main/resources/com/example/firstjavafx/settings.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="aboutButton" alignment="CENTER" graphicTextGap="25.0" mnemonicParsing="false" onAction="#switchToAbout" prefHeight="54.0" prefWidth="242.0" style="-fx-background-color: #d99df7;" text="ABOUT" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="44.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../FirstJavaFX/src/main/resources/com/example/firstjavafx/about.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="exitButton" alignment="CENTER" graphicTextGap="35.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="54.0" prefWidth="242.0" style="-fx-background-color: #d99df7;" text="EXIT" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="44.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../FirstJavaFX/src/main/resources/com/example/firstjavafx/exit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="583.0" prefWidth="665.0">
+                     <children>
+                        <Button fx:id="menuButton" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../FirstJavaFX/src/main/resources/com/example/firstjavafx/apps.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <StackPane fx:id="contentArea" prefHeight="543.0" prefWidth="665.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

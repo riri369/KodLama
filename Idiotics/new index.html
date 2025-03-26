@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideAble - Accessible Mobility Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0F9D58;
+            --secondary-color: #4285F4;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .ride-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ride-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        /* Enhanced button hover effects */
+        .hover-scale {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Navigation -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="/transport/logo.png" alt="RideAble Logo" class="h-10">
+                <nav class="ml-8 space-x-6 hidden md:flex">
+                   
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 hover-scale transition-colors">
+                    Become a Partner
+                </button>
+                <button class="border border-green-500 text-green-500 px-4 py-2 rounded-full hover:bg-green-50 hover-scale transition-colors">
+                    Login
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Ride Booking -->
+    <section class="pt-20 pb-12 bg-gradient-to-r from-green-500 to-blue-500 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h1 class="text-4xl font-bold mb-4">
+                        Accessible Rides, Inclusive Journeys
+                    </h1>
+                    <p class="text-xl mb-6 text-white/90">
+                        Empowering mobility for everyone, regardless of ability
+                    </p>
+                    
+                    <!-- Ride Booking Card -->
+                    <div class="bg-white text-gray-800 p-6 rounded-lg shadow-xl">
+                        <div class="flex space-x-4 mb-4">
+                            <button class="flex-1 bg-green-500 text-white py-3 rounded-lg hover-scale transition-colors">
+                                <i class="fas fa-car mr-2"></i>Ride
+                            </button>
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-lg hover-scale transition-colors">
+                                <i class="fas fa-wheelchair mr-2"></i>Accessible Ride
+                            </button>
+                            <button class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-lg hover-scale transition-colors">
+                                <i class="fas fa-route mr-2"></i>Outstation
+                            </button>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="relative">
+                                <i class="fas fa-map-marker-alt absolute left-3 top-1/2 transform -translate-y-1/2 text-green-500"></i>
+                                <input 
+                                    type="text" 
+                                    placeholder="Where to?" 
+                                    class="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                >
+                            </div>
+                            
+                            <button class="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 hover-scale transition-colors">
+                                Search Rides
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <img src="/api/placeholder/600/400" alt="Accessible Ride Illustration" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessibility Features -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Accessibility at the Core
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="ride-card bg-gray-100 p-6 rounded-lg text-center hover:shadow-lg">
+                    <i class="fas fa-wheelchair text-5xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Wheelchair Accessible Vehicles</h3>
+                    <p>Specially equipped vehicles with ramps and secure tie-downs</p>
+                </div>
+                <div class="ride-card bg-gray-100 p-6 rounded-lg text-center hover:shadow-lg">
+                    <i class="fas fa-universal-access text-5xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Trained Drivers</h3>
+                    <p>Drivers trained in assisting passengers with diverse needs</p>
+                </div>
+                <div class="ride-card bg-gray-100 p-6 rounded-lg text-center hover:shadow-lg">
+                    <i class="fas fa-assistive-listening-systems text-5xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Adaptive Communication</h3>
+                    <p>Support for hearing and speech impaired passengers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Why Choose RideAble
+            </h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-5 rounded-lg text-center shadow-md hover-scale transition-all">
+                    <i class="fas fa-shield-alt text-4xl text-green-500 mb-4"></i>
+                    <h3 class="font-semibold">Safety First</h3>
+                    <p class="text-sm text-gray-600">Verified drivers and real-time tracking</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg text-center shadow-md hover-scale transition-all">
+                    <i class="fas fa-money-bill-wave text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="font-semibold">Competitive Pricing</h3>
+                    <p class="text-sm text-gray-600">Affordable rides with transparent fares</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg text-center shadow-md hover-scale transition-all">
+                    <i class="fas fa-mobile-alt text-4xl text-purple-500 mb-4"></i>
+                    <h3 class="font-semibold">Easy Booking</h3>
+                    <p class="text-sm text-gray-600">Seamless app experience</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg text-center shadow-md hover-scale transition-all">
+                    <i class="fas fa-headset text-4xl text-green-600 mb-4"></i>
+                    <h3 class="font-semibold">24/7 Support</h3>
+                    <p class="text-sm text-gray-600">Dedicated accessibility support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Special Offers
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg hover-scale transition-all">
+                    <h3 class="text-xl font-semibold mb-3 text-green-600">
+                        Accessibility First Ride Free
+                    </h3>
+                    <p>Get your first accessible ride absolutely free!</p>
+                    <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded-lg hover-scale transition-colors">
+                        Claim Offer
+                    </button>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg hover-scale transition-all">
+                    <h3 class="text-xl font-semibold mb-3 text-blue-600">
+                        Partner Program
+                    </h3>
+                    <p>Join our network of inclusive transportation providers</p>
+                    <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover-scale transition-colors">
+                        Learn More
+                    </button>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg hover-scale transition-all">
+                    <h3 class="text-xl font-semibold mb-3 text-purple-600">
+                        Community Support
+                    </h3>
+                    <p>Special packages for accessibility organizations</p>
+                    <button class="mt-4 bg-purple-500 text-white px-4 py-2 rounded-lg hover-scale transition-colors">
+                        Connect
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-400 hover-scale">About Us</a></li>
+                        <li><a href="#" class="hover:text-green-400 hover-scale">Careers</a></li>
+                        <li><a href="#" class="hover:text-green-400 hover-scale">Accessibility Commitment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-400 hover-scale">Wheelchair Rides</a></li>
+                        <li><a href="#" class="hover:text-green-400 hover-scale">Adaptive Transportation</a></li>
+                        <li><a href="#" class="hover:text-green-400 hover-scale">Outstation Accessible Travel</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-400 hover-scale">Accessibility Help Center</a></li>
+                        <li><a href="#" class="hover:text-green-400 hover-scale">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-green-400 hover-scale">Accessibility Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl hover:text-green-400 hover-scale"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-green-400 hover-scale"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-2xl hover:text-green-400 hover-scale"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="mt-4 flex space-x-2">
+                        <img src="/api/placeholder/120/40" alt="App Store" class="h-10 hover-scale">
+                        <img src="/api/placeholder/120/40" alt="Google Play" class="h-10 hover-scale">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center border-t border-gray-700 pt-6">
+                <p>&copy; 2025 RideAble. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

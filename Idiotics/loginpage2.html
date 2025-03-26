@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
+            <div class="text-center">
+                <img src="logo.png" alt="RideAble Logo" class="mx-auto h-40 w-auto mb-6">
+                <h2 class="text-3xl font-bold text-gray-900">
+                    Welcome to Accessible Mobility
+                </h2>
+                <p class="mt-2 text-sm text-gray-600">
+                    Log in to continue your inclusive journey
+                </p>
+            </div>
+            
+            <!-- Error Message Container -->
+            <div id="error-message" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline" id="error-text"></span>
+            </div>
+
+            <form id="login-form" class="mt-8 space-y-6">
+                <div class="rounded-md shadow-sm -space-y-px">
+                    <div class="mb-4">
+                        <label for="email-address" class="sr-only">Email address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-green-500"></i>
+                            </div>
+                            <input 
+                                id="email-address" 
+                                name="email" 
+                                type="email" 
+                                autocomplete="email" 
+                                required 
+                                class="appearance-none rounded-lg relative block w-full px-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 hover-focus-effect" 
+                                placeholder="Email address"
+                            >
+                        </div>
+                    </div>
+                    <div>
+                        <label for="password" class="sr-only">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-green-500"></i>
+                            </div>
+                            <input 
+                                id="password" 
+                                name="password" 
+                                type="password" 
+                                autocomplete="current-password" 
+                                required 
+                                class="appearance-none rounded-lg relative block w-full px-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 hover-focus-effect" 
+                                placeholder="Password"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input 
+                            id="remember-me" 
+                            name="remember-me" 
+                            type="checkbox" 
+                            class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded hover-focus-effect"
+                        >
+                        <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <div class="text-sm">
+                        <a href="#" class="font-medium text-green-600 hover:text-green-500 hover-focus-effect">
+                            Forgot your password?
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <button 
+                        type="submit" 
+                        id="login-button"
+                        class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-full text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 hover-focus-effect"
+                    >
+                        Log in
+                    </button>
+                </div>
+            </form>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const form = document.getElementById('login-form');
+                    const errorContainer = document.getElementById('error-message');
+                    const errorText = document.getElementById('error-text');
+                    const loginButton = document.getElementById('login-button');
+
+                    form.addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                        
+                        // Reset error state
+                        errorContainer.classList.add('hidden');
+                        loginButton.disabled = true;
+                        loginButton.innerHTML = 'Logging in...';
+
+                        // Collect form data
+                        const formData = {
+                            email: document.getElementById('email-address').value,
+                            password: document.getElementById('password').value,
+                            rememberMe: document.getElementById('remember-me').checked
+                        };
+
+                        try {
+                            // Basic client-side validation
+                            if (!formData.email || !formData.password) {
+                                throw new Error('Please enter both email and password');
+                            }
+
+                            // Simulate API call (replace with actual backend endpoint)
+                            const response = await fetch('https://rideable-backend.com/api/login', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(formData)
+                            });
+
+                            const result = await response.json();
+
+                            if (!response.ok) {
+                                // Handle API errors
+                                throw new Error(result.message || 'Login failed');
+                            }
+
+                            // Successful login
+                            localStorage.setItem('userToken', result.token);
+                            window.location.href = '/dashboard'; // Redirect to dashboard
+
+                        } catch (error) {
+                            // Display error message
+                            errorText.textContent = error.message;
+                            errorContainer.classList.remove('hidden');
+                        } finally {
+                            // Reset button state
+                            loginButton.disabled = false;
+                            loginButton.innerHTML = 'Log in';
+                        }
+                    });
+                });
+            </script>
+
+            <div class="text-center">
+                <p class="mt-2 text-sm text-gray-600">
+                    Don't have an account? 
+                    <a href="#" class="font-medium text-green-600 hover:text-green-500 hover-focus-effect">
+                        Sign up
+                    </a>
+                </p>
+            </div>
+
+            <div class="mt-6">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">
+                            Or continue with
+                        </span>
+                    </div>
+                </div>
+
+                <div class="mt-6 grid grid-cols-3 gap-3">
+                    <div>
+                        <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-500 hover:bg-gray-50 hover-focus-effect">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-500 hover:bg-gray-50 hover-focus-effect">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-500 hover:bg-gray-50 hover-focus-effect">
+                            <i class="fab fa-apple"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

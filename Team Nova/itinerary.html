@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EaseJourney - Stylish Tourism Transport & Logistics</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://static.toiimg.com/photo/63282406.cms') center/cover no-repeat;
+      color: #fff;
+      padding: 140px 20px;
+      text-align: center;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      font-size: 3.8rem;
+      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    nav.navbar {
+      background: linear-gradient(to right, #4e54c8, #8f94fb);
+    }
+
+    section {
+      border-radius: 30px;
+      padding: 60px 30px;
+      margin: 50px auto;
+      background-color: #fff;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .card {
+      background: linear-gradient(to right, #36d1dc, #5b86e5);
+      color: #fff;
+      border-radius: 20px;
+      border: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .card:hover {
+      transform: scale(1.08);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .btn-light {
+      background: linear-gradient(to right, #4e54c8, #8f94fb);
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      border: none;
+      transition: background-color 0.4s, transform 0.3s;
+    }
+
+    .btn-light:hover {
+      background: linear-gradient(to right, #8f94fb, #4e54c8);
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      font-weight: 800;
+      color: #4e54c8;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .form-control, .form-select, textarea.form-control {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border: 1px solid #ddd;
+      transition: 0.4s;
+    }
+
+    .form-control:focus, .form-select:focus, textarea.form-control:focus {
+      background-color: #e3e8ff;
+      box-shadow: 0 4px 20px rgba(78, 84, 200, 0.4);
+      border-color: #4e54c8;
+    }
+
+    .counter {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #4e54c8;
+      font-family: 'Roboto Slab', serif;
+    }
+
+    .counter-box {
+      background: #e3e8ff;
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.4s;
+    }
+
+    .counter-box:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+      background: linear-gradient(to right, #4e54c8, #8f94fb);
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+      border-top-left-radius: 80px;
+      border-top-right-radius: 80px;
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">EaseJourney</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Itinerary Generator</a></li>
+          <li class="nav-item"><a class="nav-link" href="plan.html">Plan Your Trip</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home">
+    <h1><b>Welcome to EaseJourney</b></h1>
+    <p>Your personalised travel architect</p>
+  </header>
+
+  <section class="container" id="services">
+    <h2 class="text-center mb-4">Our Services</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Transport Booking</h5>
+          <p>Book cabs, buses, rentals, and e-bikes effortlessly with real-time availability.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Luggage Handling</h5>
+          <p>Luggage storage and handling services to ensure stress-free travel.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Route Planning</h5>
+          <p>Get optimized routes for top tourist destinations to save time and costs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="counter-box">
+          <div class="counter" data-target="1500">0</div>
+          <p>Happy Travelers</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="counter-box">
+          <div class="counter" data-target="250">0</div>
+          <p>Destinations</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="counter-box">
+          <div class="counter" data-target="500">0</div>
+          <p>Vehicles Available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="booking">
+    <h2 class="text-center mb-4">Book Your Ride</h2>
+    <form>
+      <div class="mb-3">
+        <label>Pickup Location</label>
+        <select class="form-select">
+          <option selected>Select City/State</option>
+          <option>New Delhi</option>
+          <option>Mumbai, Maharashtra</option>
+          <option>Kolkata, West Bengal</option>
+          <option>Chennai, Tamil Nadu</option>
+          <option>Bengaluru, Karnataka</option>
+          <option>Hyderabad, Telangana</option>
+          <option>Jaipur, Rajasthan</option>
+          <option>Bhubaneswar, Odisha</option>
+          <option>Lucknow, Uttar Pradesh</option>
+          <option>Ahmedabad, Gujarat</option>
+          <option>Pune, Maharashtra</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label>Drop Location</label>
+        <select class="form-select">
+          <option selected>Select City/State</option>
+          <option>New Delhi</option>
+          <option>Mumbai, Maharashtra</option>
+          <option>Kolkata, West Bengal</option>
+          <option>Chennai, Tamil Nadu</option>
+          <option>Bengaluru, Karnataka</option>
+          <option>Hyderabad, Telangana</option>
+          <option>Jaipur, Rajasthan</option>
+          <option>Bhubaneswar, Odisha</option>
+          <option>Lucknow, Uttar Pradesh</option>
+          <option>Ahmedabad, Gujarat</option>
+          <option>Pune, Maharashtra</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label>Service Type</label>
+        <select class="form-select">
+          <option value="cab">Cab</option>
+          <option value="bus">Bus</option>
+          <option value="bike">E-Bike</option>
+          <option value="luggage">Luggage Service</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-light">Book Now</button>
+    </form>
+  </section>
+
+  <section class="container" id="trip">
+    <h2 class="text-center mb-4">Plan Your Trip</h2>
+    <form>
+      <div class="mb-3">
+        <label>Destination</label>
+        <input type="text" class="form-control" placeholder="Enter your destination">
+      </div>
+      <div class="mb-3">
+        <label>Duration of Stay (in days)</label>
+        <input type="number" class="form-control" placeholder="Enter number of days">
+      </div>
+      <div class="mb-3">
+        <label>Number of People</label>
+        <input type="number" class="form-control" placeholder="Total number of visitors">
+      </div>
+      <button type="submit" class="btn btn-light">Submit Details</button>
+    </form>
+  </section>
+
+  <section class="container" id="contact">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <form>
+      <div class="mb-3">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="Your name">
+      </div>
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" class="form-control" placeholder="Your email">
+      </div>
+      <div class="mb-3">
+        <label>Message</label>
+        <textarea class="form-control" rows="3" placeholder="Your message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-light">Submit</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TravelEase | All rights reserved</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 100;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EaseJourney - Plan Your Trip</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .header {
+      text-align: center;
+      padding: 100px 20px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      margin: 30px auto;
+      width: 90%;
+      animation: fadeIn 2s;
+    }
+
+    .header h1 {
+      font-size: 3.5rem;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .plan-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 50px;
+      width: 85%;
+      margin: 50px auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 2s;
+    }
+
+    .plan-container label {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .plan-container input,
+    .plan-container select,
+    .plan-container textarea {
+      width: 100%;
+      padding: 15px;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      border: none;
+      border-radius: 15px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      backdrop-filter: blur(5px);
+    }
+
+    .plan-container input::placeholder,
+    .plan-container textarea::placeholder {
+      color: #eee;
+    }
+
+    .btn-plan {
+      background: #ff4b2b;
+      color: #fff;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn-plan:hover {
+      background: #ff416c;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #004e92;
+      color: #fff;
+      font-weight: 500;
+      text-align: center;
+      padding: 20px;
+      border-radius: 20px 20px 0 0;
+      margin-top: 60px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.5rem;
+      }
+
+      .plan-container {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>Plan Your Perfect Trip</h1>
+    <p>Customize your journey with EaseJourney</p>
+  </div>
+
+  <div class="plan-container">
+    <form>
+      <label>Destination</label>
+      <input type="text" placeholder="Enter destination" required>
+
+      <label>Departure Date</label>
+      <input type="date" required>
+
+      <label>Return Date</label>
+      <input type="date" required>
+
+      <label>Preferred Transport</label>
+      <select required>
+        <option value="">Select an option</option>
+        <option value="flight">Flight</option>
+        <option value="train">Train</option>
+        <option value="bus">Bus</option>
+        <option value="car">Car Rental</option>
+      </select>
+
+      <label>Number of Travelers</label>
+      <input type="number" placeholder="Enter number of people" min="1" required>
+
+      <label>Special Requests</label>
+      <textarea rows="4" placeholder="Mention any special requirements"></textarea>
+
+      <div style="text-align: center;">
+        <button type="submit" class="btn-plan">Get My Plan</button>
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 EaseJourney | Plan your journey effortlessly
+  </footer>
+
+</body>
+
+</html>

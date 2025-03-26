@@ -1,0 +1,30 @@
+name: forestguard
+description: "AI-powered forest fire prediction application"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.7.2 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  google_generative_ai: ^0.1.0
+  flutter_dotenv: ^5.1.0
+  flutter_animate: ^4.1.1+1
+  http: ^1.1.0  # Updated to match google_generative_ai's requirement
+  intl: ^0.18.1
+  geolocator: ^10.0.0
+  syncfusion_flutter_charts: ^23.1.40
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.jpeg

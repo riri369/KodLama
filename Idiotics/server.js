@@ -1,50 +1,47 @@
 const express = require('express');
 const http = require('http');
-const { Server } = require('socket.io');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const Driver = require('./models/Driver');
-
-
-dotenv.config();
-connectDB();
+const socketIo = require('socket.io');
+const axios = require('axios');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: '*', // Adjust if necessary
-  }
-});
+const io = socketIo(server);
 
-app.use(express.json());
+app.use(express.static('public'));
 
-// Socket.IO Connection
 io.on('connection', (socket) => {
-    console.log('A user connected:', socket.id);
-  
-    // Update driver location
-    socket.on('updateLocation', async (data) => {
-      const { driverId, latitude, longitude } = data;
-      await Driver.findByIdAndUpdate(driverId, { latitude, longitude });
-      console.log(`Driver ${driverId} location updated to (${latitude}, ${longitude})`);
-      io.emit('locationUpdate', { driverId, latitude, longitude }); // Broadcast to all users
-    });
-  
-    socket.on('disconnect', () => {
-      console.log('User disconnected:', socket.id);
-    });
+  console.log('Client connected:', socket.id);
+
+  // Handle real-time tracking
+  socket.on('trackDriver', async ({ start, end }) => {
+    try {
+      const osrmURL = `http://localhost:5000/route/v1/driving/${start};${end}?overview=full&geometries=geojson`;
+      const response = await axios.get(osrmURL);
+      const route = response.data.routes[0];
+      
+      // Emit route data
+      socket.emit('routeData', route);
+
+      // Simulate live driver movement
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index >= route.geometry.coordinates.length) {
+          clearInterval(interval);
+        } else {
+          const coord = route.geometry.coordinates[index];
+          socket.emit('driverLocation', { lat: coord[1], lng: coord[0] });
+          index++;
+        }
+      }, 1000);
+    } catch (error) {
+      console.error('Error fetching route:', error.message);
+      socket.emit('error', { message: 'Failed to fetch route' });
+    }
   });
-  
 
-// Import routes
-const authRoutes = require('./routes/authRoutes');
-app.use('/api/auth', authRoutes);
-
-app.get('/', (req, res) => {
-  res.send('Welcome to Rideable API!');
+  socket.on('disconnect', () => {
+    console.log('Client disconnected:', socket.id);
+  });
 });
 
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(3000, () => console.log('Server running on http://localhost:3000'));

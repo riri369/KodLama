@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.kodlama.CheckUpController"
+      spacing="10"
+      style="-fx-padding: 20;">
+
+    <Text text="Symptom Checker" style="-fx-font-size: 20;"/>
+
+    <TextField fx:id="symptomsField" promptText="Enter your symptoms"/>
+    <TextField fx:id="durationField" promptText="Duration of symptoms"/>
+
+    <Button fx:id="checkButton" text="Check Symptoms"/>
+
+    <Text text="Possible Help:" style="-fx-font-weight: bold;"/>
+    <TextArea fx:id="possibleHelpArea" editable="false" wrapText="true"/>
+
+    <Text text="Advice:" style="-fx-font-weight: bold;"/>
+    <TextArea fx:id="adviceArea" editable="false" wrapText="true"/>
+</VBox>

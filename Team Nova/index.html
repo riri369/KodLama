@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EaseJourney</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      background-color: #fff;
+      padding: 30px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,h3 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .output {
+      display: none;
+      background-color: #e9f5ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .output h2 {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>EaseJourney</h1>
+    <h3>Your personalised travel architect</h3>
+    <form id="itineraryForm">
+      <label for="destination">Destination</label>
+      <select id="destination" name="destination" required>
+        <option value="">Select a City</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Kolkata">Kolkata</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Bengaluru">Bengaluru</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Jaipur">Jaipur</option>
+        <option value="Agra">Agra</option>
+        <option value="Varanasi">Varanasi</option>
+        <option value="Udaipur">Udaipur</option>
+        <option value="Goa">Goa</option>
+        <option value="Pune">Pune</option>
+        <option value="Shimla">Shimla</option>
+        <option value="Manali">Manali</option>
+        <option value="Rishikesh">Rishikesh</option>
+        <option value="Darjeeling">Darjeeling</option>
+        <option value="Leh-Ladakh">Leh-Ladakh</option>
+        <option value="Amritsar">Amritsar</option>
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Bhubaneswar">Bhubaneswar</option>
+      </select>
+
+      <label for="travelType">Traveling With</label>
+      <select id="travelType" name="travelType" required>
+        <option value="">Select</option>
+        <option value="solo">Solo</option>
+        <option value="friends">Friends</option>
+        <option value="family">Family</option>
+      </select>
+
+      <label for="budget">Budget (in INR)</label>
+      <input type="number" id="budget" name="budget" placeholder="Enter your budget" required>
+
+      <label for="duration">Duration (in days)</label>
+      <input type="number" id="duration" name="duration" placeholder="Number of days" required>
+
+      <button type="submit">Generate Itinerary</button>
+    </form>
+
+    <div class="output" id="outputBox">
+      <h2>Your Itinerary</h2>
+      <p id="itineraryResult"></p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('itineraryForm');
+    const itineraryResult = document.getElementById('itineraryResult');
+    const outputBox = document.getElementById('outputBox');
+
+    const itineraryData = [
+      { "city": "Goa", "attractions": ["Baga Beach", "Fort Aguada", "Dudhsagar Falls", "Cruise Ride"], "avgHotelCost": 2500, "avgFoodCost": 800 },
+      { "city": "Delhi", "attractions": ["Red Fort", "India Gate", "Qutub Minar", "Lotus Temple"], "avgHotelCost": 2000, "avgFoodCost": 600 },
+      { "city": "Manali", "attractions": ["Solang Valley", "Hidimba Temple", "Rohtang Pass", "Mall Road"], "avgHotelCost": 1800, "avgFoodCost": 500 },
+      { "city": "Mumbai", "attractions": ["Gateway of India", "Marine Drive", "Elephanta Caves", "Juhu Beach"], "avgHotelCost": 2500, "avgFoodCost": 800 },
+      { "city": "Jaipur", "attractions": ["Hawa Mahal", "Amber Fort", "City Palace", "Jantar Mantar"], "avgHotelCost": 2200, "avgFoodCost": 700 },
+      { "city": "Kolkata", "attractions": ["Victoria Memorial", "Howrah Bridge", "Dakshineswar Temple", "Park Street"], "avgHotelCost": 2000, "avgFoodCost": 650 },
+      { "city": "Chennai", "attractions": ["Marina Beach", "Kapaleeshwarar Temple", "Fort St. George", "Mahabalipuram"], "avgHotelCost": 1800, "avgFoodCost": 600 },
+      { "city": "Bengaluru", "attractions": ["Lalbagh", "Cubbon Park", "Bangalore Palace", "MG Road"], "avgHotelCost": 2200, "avgFoodCost": 750 },
+      { "city": "Hyderabad", "attractions": ["Charminar", "Golconda Fort", "Ramoji Film City", "Hussain Sagar"], "avgHotelCost": 2100, "avgFoodCost": 700 },
+      { "city": "Udaipur", "attractions": ["City Palace", "Lake Pichola", "Jag Mandir", "Fateh Sagar Lake"], "avgHotelCost": 2300, "avgFoodCost": 700 },
+      { "city": "Agra", "attractions": ["Taj Mahal", "Agra Fort", "Mehtab Bagh", "Fatehpur Sikri"], "avgHotelCost": 2000, "avgFoodCost": 650 },
+      { "city": "Varanasi", "attractions": ["Kashi Vishwanath Temple", "Dashashwamedh Ghat", "Sarnath", "Assi Ghat"], "avgHotelCost": 1800, "avgFoodCost": 600 },
+      { "city": "Pune", "attractions": ["Shaniwar Wada", "Sinhagad Fort", "Aga Khan Palace", "Mulshi Dam"], "avgHotelCost": 2200, "avgFoodCost": 700 },
+      { "city": "Shimla", "attractions": ["The Ridge", "Mall Road", "Jakhoo Temple", "Kufri"], "avgHotelCost": 2000, "avgFoodCost": 600 },
+      { "city": "Rishikesh", "attractions": ["Laxman Jhula", "Triveni Ghat", "Ram Jhula", "River Rafting"], "avgHotelCost": 1700, "avgFoodCost": 500 },
+      { "city": "Darjeeling", "attractions": ["Tiger Hill", "Batasia Loop", "Himalayan Railway", "Peace Pagoda"], "avgHotelCost": 2000, "avgFoodCost": 600 },
+      { "city": "Leh-Ladakh", "attractions": ["Pangong Lake", "Nubra Valley", "Magnetic Hill", "Leh Palace"], "avgHotelCost": 3000, "avgFoodCost": 900 },
+      { "city": "Amritsar", "attractions": ["Golden Temple", "Jallianwala Bagh", "Wagah Border", "Partition Museum"], "avgHotelCost": 1900, "avgFoodCost": 650 },
+      { "city": "Ahmedabad", "attractions": ["Sabarmati Ashram", "Kankaria Lake", "Adalaj Stepwell", "Sidi Saiyyed Mosque"], "avgHotelCost": 2000, "avgFoodCost": 650 },
+      { "city": "Bhubaneswar", "attractions": ["Lingaraj Temple", "Udayagiri Caves", "Nandankanan Zoo", "Dhauli Shanti Stupa"], "avgHotelCost": 1800, "avgFoodCost": 550 }
+    ];
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const destination = document.getElementById('destination').value;
+      const travelType = document.getElementById('travelType').value;
+      const budget = parseInt(document.getElementById('budget').value);
+      const duration = parseInt(document.getElementById('duration').value);
+
+      const cityData = itineraryData.find(city => city.city === destination);
+
+      if (!cityData) {
+        itineraryResult.innerHTML = "No data found for the selected city.";
+        outputBox.style.display = 'block';
+        return;
+      }
+
+      const hotelCost = cityData.avgHotelCost * duration;
+      const foodCost = cityData.avgFoodCost * duration;
+      const totalEstimatedCost = hotelCost + foodCost;
+
+      let recommendation = "";
+      if (budget >= totalEstimatedCost) {
+        recommendation = "Your budget is good for this trip!";
+      } else {
+        recommendation = "You might need to increase your budget or reduce the duration.";
+      }
+
+      itineraryResult.innerHTML = `
+      <h3>${destination} Itinerary</h3>
+      <p><strong>Travel Type:</strong> ${travelType}</p>
+      <p><strong>Duration:</strong> ${duration} days</p>
+      <p><strong>Main Attractions:</strong> ${cityData.attractions.join(", ")}</p>
+      <p><strong>Estimated Hotel Cost:</strong> ₹${hotelCost}</p>
+      <p><strong>Estimated Food Cost:</strong> ₹${foodCost}</p>
+      <p><strong>Total Estimated Cost:</strong> ₹${totalEstimatedCost}</p>
+      <p><em>${recommendation}</em></p>
+      <iframe
+          width="100%"
+          height="300"
+          style="border:0; margin-top:20px;"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=${destination}&output=embed">
+      </iframe>
+    `;
+
+      outputBox.style.display = 'block';
+    });
+  </script>
+</body>
+
+</html>

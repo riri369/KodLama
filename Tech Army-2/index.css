@@ -1,0 +1,111 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 5%;
+
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  /* Glass morphism */
+  .glass {
+    @apply backdrop-blur-md bg-white/70 border border-white/20 shadow-lg;
+  }
+
+  .neo-glass {
+    @apply backdrop-blur-xl bg-white/80 border border-white/30 shadow-xl;
+  }
+
+  /* Weather Card Specific */
+  .weather-card {
+    @apply transition-all duration-300 hover:shadow-lg;
+  }
+
+  /* Alert Banner Animation */
+  .alert-banner {
+    @apply transition-all duration-500;
+  }
+
+  .alert-pulse {
+    animation: alert-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes alert-pulse {
+    0%, 100% {
+      background-color: rgba(255, 59, 48, 0.8);
+    }
+    50% {
+      background-color: rgba(255, 59, 48, 0.6);
+    }
+  }
+  
+  /* Smooth page transitions */
+  .page-transition-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .page-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 400ms, transform 400ms;
+  }
+}
+
+@layer components {
+  .metric-value {
+    @apply text-4xl font-light tracking-tight;
+  }
+  
+  .metric-label {
+    @apply text-sm uppercase tracking-wider text-muted-foreground font-medium;
+  }
+  
+  .metric-unit {
+    @apply text-lg font-medium text-muted-foreground ml-1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

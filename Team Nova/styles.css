@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+  }
+  
+  .container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 700px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+  }
+  
+  h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  label {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 600;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: 0.4s;
+  }
+  
+  input:focus, select:focus {
+    border-color: #5fc9c1;
+    outline: none;
+    box-shadow: 0 0 12px rgba(47, 255, 198, 0.6);
+  }
+  
+  button {
+    background: linear-gradient(135deg, #74ebd5 0%, #5fc9c1 100%);
+    color: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    border: none;
+    font-size: 18px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.4s;
+    font-weight: 700;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #5fc9c1 0%, #49bdb3 100%);
+  }
+  
+  .output {
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    backdrop-filter: blur(8px);
+    display: none;
+  }
+  
+  .output h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .output p {
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  iframe {
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  

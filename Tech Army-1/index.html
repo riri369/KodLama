@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Crowd Management</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Smart Crowd Management Platform</h1>
+    </header>
+    <main>
+        <section id="map-section">
+            <h2>Live Crowd Density Map</h2>
+            <div id="map"></div>
+        </section>
+        <section id="info-panel">
+            <h2>Real-Time Congestion Indicators</h2>
+            <div id="congestion-status">
+                <p>Current Status: <span id="congestion-level">Loading...</span></p>
+            </div>
+            <h2>Alternative Attractions</h2>
+            <ul id="suggestions"></ul>
+            <h2>Pre-book a Time Slot</h2>
+            <form id="booking-form">
+                <label for="attraction">Select Attraction:</label>
+                    <select id="attraction">
+                        <option value="Lingaraj Temple">Lingaraj Temple</option>
+                        <option value="Nandankanan Zoo">Nandankanan Zoo</option>
+                        <option value="Udayagiri Caves">Udayagiri Caves</option>
+                    </select>
+                <label for="time-slot">Select Time Slot:</label>
+                <select id="time-slot">
+                    <option value="09:00-10:00">09:00 - 10:00 AM</option>
+                    <option value="10:00-11:00">10:00 - 11:00 AM</option>
+                    <option value="11:00-12:00">11:00 - 12:00 PM</option>
+                    <option value="12:00-13:00">12:00 - 01:00 PM</option>
+                    <option value="13:00-14:00">01:00 - 02:00 PM</option>
+                    <option value="14:00-15:00">02:00 - 03:00 PM</option>
+                    <option value="15:00-16:00">03:00 - 04:00 PM</option>
+                    <option value="16:00-17:00">04:00 - 05:00 PM</option>
+                </select>
+                <input type="time" id="time-slot">
+                <button type="submit">Book Now</button>
+            </form>
+        </section>
+        <section id="feedback-section">
+            <h2>Feedback</h2>
+            <form id="feedback-form">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" required>
+                <label for="message">Your Feedback:</label>
+                <textarea id="message" rows="4" required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+        
+        <section id="contact-section">
+            <h2>Contact Customer Care</h2>
+            <p>For any inquiries, please contact our customer care at:</p>
+            <p>Email: Smart Crowd Management Platform.com</p>
+            <p>Phone: +91 12345 67890</p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

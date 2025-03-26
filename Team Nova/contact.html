@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EaseJourney - Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #00b09b, #96c93d);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .header {
+      text-align: center;
+      padding: 80px 20px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      margin: 30px auto;
+      width: 90%;
+      animation: fadeIn 2s;
+    }
+
+    .header h1 {
+      font-size: 3.2rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      padding: 50px;
+      width: 85%;
+      margin: 50px auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 2s;
+    }
+
+    .contact-container label {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .contact-container input,
+    .contact-container textarea {
+      width: 100%;
+      padding: 18px;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      border: none;
+      border-radius: 15px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      backdrop-filter: blur(5px);
+      font-size: 1rem;
+    }
+
+    .contact-container input::placeholder,
+    .contact-container textarea::placeholder {
+      color: #eee;
+    }
+
+    .btn-contact {
+      background: #ff5f6d;
+      background: linear-gradient(to right, #ff5f6d, #ffc371);
+      color: #fff;
+      padding: 15px 50px;
+      border: none;
+      border-radius: 35px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-contact:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-info {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #f2f2f2;
+    }
+
+    footer {
+      background-color: #004e92;
+      color: #fff;
+      font-weight: 500;
+      text-align: center;
+      padding: 20px;
+      border-radius: 20px 20px 0 0;
+      margin-top: 60px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.2rem;
+      }
+
+      .contact-container {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you! Reach out for queries, collaborations, or support.</p>
+  </div>
+
+  <div class="contact-container">
+    <form>
+      <label>Your Name</label>
+      <input type="text" placeholder="Enter your name" required>
+
+      <label>Email Address</label>
+      <input type="email" placeholder="Enter your email" required>
+
+      <label>Subject</label>
+      <input type="text" placeholder="Subject" required>
+
+      <label>Message</label>
+      <textarea rows="5" placeholder="Write your message here..." required></textarea>
+
+      <div style="text-align: center;">
+        <button type="submit" class="btn-contact">Send Message</button>
+      </div>
+    </form>
+
+    <div class="contact-info">
+      <p>Email: support@easejourney.com</p>
+      <p>Phone: +91-9876543210</p>
+      <p>Address: Bhubaneswar, Odisha, India</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 EaseJourney | Your Travel Partner
+  </footer>
+
+</body>
+
+</html>

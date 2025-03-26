@@ -11,8 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="./assets//css/main.css" />
 	</head>
-	<body>
-
+    <body>
 		<!-- Header -->
 			<header id="header" class="alt">
 				<div class="logo"><a href="index.html">DISASTER MANAGEMENT<!-- <span>by TEMPLATED</span>--></a></div>
@@ -237,6 +236,25 @@
 					&copy; Untitled. All rights reserved.
 				</div>
 			</footer>
+			<!-- Chatbot Interface -->
+<div id="chatbot-toggle" style="position:fixed; bottom:20px; right:20px; z-index:999;">
+	<button class="button special icon fa-comment" style="border-radius:50%; width:60px; height:60px;"></button>
+  </div>
+  
+  <div id="chatbot-container" style="display:none; position:fixed; bottom:90px; right:20px; width:350px; background:#f9f9f9; border:1px solid #ddd; border-radius:5px; box-shadow:0 0 10px rgba(0,0,0,0.1); z-index:1000;">
+	<div style="background:#ff4444; color:white; padding:10px; border-radius:5px 5px 0 0;">
+	  <strong>DisasterBot</strong>
+	  <span id="close-chat" style="float:right; cursor:pointer;">✕</span>
+	</div>
+	<div id="chat-messages" style="height:300px; overflow-y:auto; padding:10px;"></div>
+	<div style="padding:10px; border-top:1px solid #ddd;">
+	  <input type="text" id="user-input" placeholder="Ask about disaster preparedness..." style="width:75%; padding:8px;">
+	  <button id="send-btn" class="button small" style="width:20%;">Send</button>
+	</div>
+  </div>
+  
+  
+	
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -245,6 +263,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>	
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/chatbot.js"></script>
 
 	</body>
 </html>
